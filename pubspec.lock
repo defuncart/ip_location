@@ -35,7 +35,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "9b0b45892bc92aff6c0e16b6fd6c2d65122e604e"
+      resolved-ref: "8c69e3ca52a345fbadee9a0b734c3ae6854c20cd"
       url: "https://github.com/defuncart/app_store_screenshots"
     source: git
     version: "0.0.1"
