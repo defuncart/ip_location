@@ -4,15 +4,15 @@ publish_to: 'none'
 version: 0.0.1+1
 
 environment:
-  sdk: '>=3.5.0 <4.0.0'
-  flutter: '>=3.24.0 < 4.0.0'
+  sdk: '>=3.6.0 <4.0.0'
+  flutter: '>=3.27.0 < 4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter 
-  cupertino_icons: ^1.0.2
+  cupertino_icons:
   connectivity_plus:
   flutter_riverpod:
   riverpod_annotation:
@@ -22,7 +22,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
   arb_generator:
   build_runner:
   riverpod_generator:
