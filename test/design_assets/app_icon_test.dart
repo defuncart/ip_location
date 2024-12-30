@@ -17,14 +17,16 @@ class AppIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: size,
-      height: size,
-      child: CupertinoPageScaffold(
-        child: Center(
-          child: Icon(
-            CupertinoIcons.map_pin_ellipse,
-            size: size * 0.6,
+    return CupertinoApp(
+      home: SizedBox(
+        width: size,
+        height: size,
+        child: CupertinoPageScaffold(
+          child: Center(
+            child: Icon(
+              CupertinoIcons.map_pin_ellipse,
+              size: size * 0.6,
+            ),
           ),
         ),
       ),
