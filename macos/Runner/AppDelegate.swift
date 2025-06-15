@@ -26,4 +26,8 @@ class AppDelegate: FlutterAppDelegate {
 
 //    super.applicationDidFinishLaunching(aNotification)
   }
+
+  override func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
+    return true
+  }
 }
