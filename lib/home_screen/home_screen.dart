@@ -27,8 +27,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 AsyncLoading() => const CupertinoActivityIndicator(),
                 AsyncError(:final error) => Text(error.toString()),
                 AsyncData() => DataView(
-                    state: state.value,
-                  ),
+                  state: state.value,
+                ),
                 // AsyncData() => const HomeScreenContent(),
                 // TODO: Handle this case.
                 AsyncValue<HomeState>() => throw UnimplementedError(),
@@ -69,14 +69,14 @@ class DataView extends StatelessWidget {
   Widget build(BuildContext context) {
     return switch (state) {
       HomeStateNoConnection() => Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Icon(
-              CupertinoIcons.exclamationmark_circle_fill,
-            ),
-            Text(context.l10n.noConnection),
-          ],
-        ),
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Icon(
+            CupertinoIcons.exclamationmark_circle_fill,
+          ),
+          Text(context.l10n.noConnection),
+        ],
+      ),
       HomeStateSuccess(
         :final ip,
         :final countryCode,
