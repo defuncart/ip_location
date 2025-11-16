@@ -63,8 +63,6 @@ class DataView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(state);
-
     return switch (state) {
       HomeStateNoConnection() => Column(
         mainAxisSize: MainAxisSize.min,
@@ -93,13 +91,9 @@ class DataView extends StatelessWidget {
               children: [
                 Image.network(
                   countryFlag,
-                  // 'https://ipgeolocation.io/static/flags/us_64.png',
                   height: 16,
                   fit: BoxFit.fitHeight,
-                  errorBuilder: (context, error, stackTrace) {
-                    print(error);
-                    return const SizedBox.shrink();
-                  },
+                  errorBuilder: (_, _, _) => const SizedBox.shrink(),
                 ),
                 Text(countryCode),
               ],
