@@ -16,7 +16,7 @@ class HomeScreen extends ConsumerStatefulWidget {
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(homeStateNotifierProvider);
+    final state = ref.watch(homeStateProvider);
 
     return CupertinoPageScaffold(
       child: Column(
@@ -29,9 +29,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 AsyncData() => DataView(
                   state: state.value,
                 ),
-                // AsyncData() => const HomeScreenContent(),
-                // TODO: Handle this case.
-                AsyncValue<HomeState>() => throw UnimplementedError(),
               },
             ),
           ),
@@ -45,8 +42,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               ),
               CupertinoButton(
                 padding: EdgeInsets.zero,
+                onPressed: ref.read(homeStateProvider.notifier).updateLocation,
                 child: const Icon(CupertinoIcons.refresh),
-                onPressed: () => ref.read(homeStateNotifierProvider.notifier).updateLocation(),
               ),
             ],
           ),
