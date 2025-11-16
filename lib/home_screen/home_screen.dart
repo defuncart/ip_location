@@ -32,15 +32,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: .spaceBetween,
             children: [
               CupertinoButton(
-                padding: EdgeInsets.zero,
-                child: const Icon(CupertinoIcons.power),
+                padding: .zero,
                 onPressed: () => exit(0),
+                child: const Icon(CupertinoIcons.power),
               ),
               CupertinoButton(
-                padding: EdgeInsets.zero,
+                padding: .zero,
                 onPressed: ref.read(homeStateProvider.notifier).updateLocation,
                 child: const Icon(CupertinoIcons.refresh),
               ),
@@ -65,7 +65,7 @@ class DataView extends StatelessWidget {
   Widget build(BuildContext context) {
     return switch (state) {
       HomeStateNoConnection() => Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: .min,
         children: [
           const Icon(
             CupertinoIcons.exclamationmark_circle_fill,
@@ -80,19 +80,19 @@ class DataView extends StatelessWidget {
         :final city,
       ) =>
         Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: .min,
+          crossAxisAlignment: .center,
           spacing: 4,
           children: [
             Text(ip),
             Row(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisSize: .min,
               spacing: 8,
               children: [
                 Image.network(
                   countryFlag,
                   height: 16,
-                  fit: BoxFit.fitHeight,
+                  fit: .fitHeight,
                   errorBuilder: (_, _, _) => const SizedBox.shrink(),
                 ),
                 Text(countryCode),
