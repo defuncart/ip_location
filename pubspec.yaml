@@ -16,7 +16,6 @@ dependencies:
   connectivity_plus:
   flutter_riverpod:
   riverpod_annotation:
-  gap:
   ip_geolocation_io:
 
 dev_dependencies:

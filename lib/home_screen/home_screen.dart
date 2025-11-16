@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gap/gap.dart';
 import 'package:ip_location/home_screen/home_state.dart';
 import 'package:ip_location/l10n/l10n_extension.dart';
 
@@ -64,6 +63,8 @@ class DataView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(state);
+
     return switch (state) {
       HomeStateNoConnection() => Column(
         mainAxisSize: MainAxisSize.min,
@@ -83,23 +84,26 @@ class DataView extends StatelessWidget {
         Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
+          spacing: 4,
           children: [
             Text(ip),
-            const Gap(4),
             Row(
               mainAxisSize: MainAxisSize.min,
+              spacing: 8,
               children: [
                 Image.network(
                   countryFlag,
+                  // 'https://ipgeolocation.io/static/flags/us_64.png',
                   height: 16,
                   fit: BoxFit.fitHeight,
-                  errorBuilder: (context, error, stackTrace) => const SizedBox.shrink(),
+                  errorBuilder: (context, error, stackTrace) {
+                    print(error);
+                    return const SizedBox.shrink();
+                  },
                 ),
-                const Gap(8),
                 Text(countryCode),
               ],
             ),
-            const Gap(4),
             Text(city),
           ],
         ),
