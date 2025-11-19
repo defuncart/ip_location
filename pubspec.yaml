@@ -4,8 +4,8 @@ publish_to: 'none'
 version: 0.0.1+1
 
 environment:
-  sdk: ^3.8.0
-  flutter: ^3.32.0
+  sdk: ^3.10.0
+  flutter: ^3.38.0
 
 dependencies:
   flutter:
@@ -16,7 +16,6 @@ dependencies:
   connectivity_plus:
   flutter_riverpod:
   riverpod_annotation:
-  gap:
   ip_geolocation_io:
 
 dev_dependencies:

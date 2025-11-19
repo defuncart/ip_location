@@ -51,5 +51,8 @@ app.*.map.json
 assets_dev/l10n/
 assets_dev/app_icons/
 
+# generated
+lib/l10n/generated
+
 # secrets
 lib/home_screen/ip_locator_key.dart

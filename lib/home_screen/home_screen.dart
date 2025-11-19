@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gap/gap.dart';
 import 'package:ip_location/home_screen/home_state.dart';
 import 'package:ip_location/l10n/l10n_extension.dart';
 
@@ -16,7 +15,7 @@ class HomeScreen extends ConsumerStatefulWidget {
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(homeStateNotifierProvider);
+    final state = ref.watch(homeStateProvider);
 
     return CupertinoPageScaffold(
       child: Column(
@@ -29,24 +28,21 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 AsyncData() => DataView(
                   state: state.value,
                 ),
-                // AsyncData() => const HomeScreenContent(),
-                // TODO: Handle this case.
-                AsyncValue<HomeState>() => throw UnimplementedError(),
               },
             ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: .spaceBetween,
             children: [
               CupertinoButton(
-                padding: EdgeInsets.zero,
-                child: const Icon(CupertinoIcons.power),
+                padding: .zero,
                 onPressed: () => exit(0),
+                child: const Icon(CupertinoIcons.power),
               ),
               CupertinoButton(
-                padding: EdgeInsets.zero,
+                padding: .zero,
+                onPressed: ref.read(homeStateProvider.notifier).updateLocation,
                 child: const Icon(CupertinoIcons.refresh),
-                onPressed: () => ref.read(homeStateNotifierProvider.notifier).updateLocation(),
               ),
             ],
           ),
@@ -69,7 +65,7 @@ class DataView extends StatelessWidget {
   Widget build(BuildContext context) {
     return switch (state) {
       HomeStateNoConnection() => Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: .min,
         children: [
           const Icon(
             CupertinoIcons.exclamationmark_circle_fill,
@@ -84,25 +80,24 @@ class DataView extends StatelessWidget {
         :final city,
       ) =>
         Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: .min,
+          crossAxisAlignment: .center,
+          spacing: 4,
           children: [
             Text(ip),
-            const Gap(4),
             Row(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisSize: .min,
+              spacing: 8,
               children: [
                 Image.network(
                   countryFlag,
                   height: 16,
-                  fit: BoxFit.fitHeight,
-                  errorBuilder: (context, error, stackTrace) => const SizedBox.shrink(),
+                  fit: .fitHeight,
+                  errorBuilder: (_, _, _) => const SizedBox.shrink(),
                 ),
-                const Gap(8),
                 Text(countryCode),
               ],
             ),
-            const Gap(4),
             Text(city),
           ],
         ),
